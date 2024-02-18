@@ -13,7 +13,14 @@
     text-decoration: none;
     color: white;
 }
-
+.card{
+    margin: auto;
+}
+.bg{
+    background-color: #e5e5f7;
+opacity: 0.8;
+background-image:  repeating-radial-gradient( circle at 0 0, transparent 0, #e5e5f7 10px ), repeating-linear-gradient( #444cf755, #444cf7 );
+}
 .search-bar{
     width: 60%;
 }
@@ -50,7 +57,9 @@ input::placeholder{
     justify-content: center;
     align-items: center;
 }
-
+*{
+    box-sizing: unset;
+}
 .img img{
     width: 350px;
     height: 350px;

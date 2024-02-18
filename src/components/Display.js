@@ -53,59 +53,65 @@ const Display = ({ setData }) => {
         pauseOnHover
         theme="dark"
       />
-      <div className="container my-5">
-        <div className="row">
-          {cat.map((product) => {
-            return (
-              <>
-                <div
-                  key={product.id}
-                  className="col-lg-4 col-md-6 my-3 text-center"
-                >
+      <div className="bg">
+        <div className="container py-5">
+          <div className="row">
+            {cat.map((product) => {
+              return (
+                <>
                   <div
-                    className="card"
-                    style={{ width: "18rem" }}
-                    onClick={() => filterByCategory(product.cate)}
+                    key={product.id}
+                    className="col-lg col-md-6 my-3 text-center"
                   >
-                    {/* <Link
+                    <div
+                      className="card"
+                      style={{ width: "18rem" }}
+                      onClick={() => filterByCategory(product.cate)}
+                    >
+                      {/* <Link
                       to={`/products`}
                       style={{
                         display: "flex",
                         justifyContent: "center",
                         alignItems: "center",
                       }} */}
-                    {/* > */}
-                    <img src={product.pic} className="card-img-top" alt="..." />
-                    {/* </Link> */}
-                    <div
-                      className="card-body"
-                      onClick={() => filterByCategory(product.cate)}
-                    >
-                      <h5 className="card-title">{product.title}</h5>
-                      <p className="card-text">{product.description}</p>
-                      {/* <button className="btn btn-primary mx-3">
+                      {/* > */}
+                      <img
+                        src={product.pic}
+                        className="card-img-top"
+                        alt="..."
+                      />
+                      {/* </Link> */}
+                      <div
+                        className="card-body"
+                        onClick={() => filterByCategory(product.cate)}
+                      >
+                        <h5 className="card-title">{product.title}</h5>
+                        <p className="card-text">{product.description}</p>
+                        {/* <button className="btn btn-primary mx-3">
                         {product.price} ₹
                       </button> */}
-                      <div
-                        // onClick={() =>
-                        //   addToCart(
-                        //     product.id,
-                        //     product.price,
-                        //     product.title,
-                        //     product.description,
-                        //     product.imgSrc
-                        //   )
-                        // }
-                        className="btn btn-warning"
-                      >
-                        {product.cate}
+                        <div
+                          // onClick={() =>
+                          //   addToCart(
+                          //     product.id,
+                          //     product.price,
+                          //     product.title,
+                          //     product.description,
+                          //     product.imgSrc
+                          //   )
+                          // }
+                          className="btn btn-warning"
+                        >
+                          {product.cate}
+                        </div>
                       </div>
                     </div>
                   </div>
-                </div>
-              </>
-            );
-          })}
+                </>
+              );
+            })}
+          </div>
         </div>
       </div>
     </>
