@@ -4,12 +4,18 @@ import { cat } from "./Data";
 import { Link } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { useNavigate } from "react-router-dom";
 
 const Display = ({ setData }) => {
+  const navigate = useNavigate();
   const filterByCategory = (category) => {
+    console.log(category);
     const element = items.filter((product) => product.category === category);
-    // console.log(element)
+    console.log(element);
     setData(element);
+    navigate("/products", {
+      state: { cate: category },
+    });
   };
   //   const addToCart = (id, price, title, description, imgSrc) => {
   //     const obj = {
@@ -56,28 +62,31 @@ const Display = ({ setData }) => {
                   key={product.id}
                   className="col-lg-4 col-md-6 my-3 text-center"
                 >
-                  <div className="card" style={{ width: "18rem" }}>
-                    <Link
-                      to={`/product/${product.id}`}
+                  <div
+                    className="card"
+                    style={{ width: "18rem" }}
+                    onClick={() => filterByCategory(product.cate)}
+                  >
+                    {/* <Link
+                      to={`/products`}
                       style={{
                         display: "flex",
                         justifyContent: "center",
                         alignItems: "center",
-                      }}
+                      }} */}
+                    {/* > */}
+                    <img src={product.pic} className="card-img-top" alt="..." />
+                    {/* </Link> */}
+                    <div
+                      className="card-body"
+                      onClick={() => filterByCategory(product.cate)}
                     >
-                      <img
-                        src={product.pic}
-                        className="card-img-top"
-                        alt="..."
-                      />
-                    </Link>
-                    <div className="card-body">
                       <h5 className="card-title">{product.title}</h5>
                       <p className="card-text">{product.description}</p>
-                      <button className="btn btn-primary mx-3">
+                      {/* <button className="btn btn-primary mx-3">
                         {product.price} ₹
-                      </button>
-                      <button
+                      </button> */}
+                      <div
                         // onClick={() =>
                         //   addToCart(
                         //     product.id,
@@ -89,8 +98,8 @@ const Display = ({ setData }) => {
                         // }
                         className="btn btn-warning"
                       >
-                        Add To Cart
-                      </button>
+                        {product.cate}
+                      </div>
                     </div>
                   </div>
                 </div>

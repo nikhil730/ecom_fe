@@ -58,7 +58,7 @@ const Navbar = ({ setData, cart }) => {
           </Link>
         </div>
 
-        {location.pathname === "/" && (
+        {/* {location.pathname === "/" && (
           <div className="nav-bar-wrapper">
             <div className="items">Filter by {"->"}</div>
             <div onClick={() => setData(items)} className="items">
@@ -86,7 +86,7 @@ const Navbar = ({ setData, cart }) => {
               {">="}89999
             </div>
           </div>
-        )}
+        )} */}
       </header>
     </>
   );

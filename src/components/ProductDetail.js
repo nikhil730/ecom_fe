@@ -14,11 +14,13 @@ const ProductDetail = ({ cart, setCart }) => {
   useEffect(() => {
     const filterProduct = items.filter((prodcut) => prodcut.id == id);
     //  console.log(filterProduct)
+    console.log(filterProduct[0]);
     setProduct(filterProduct[0]);
 
     const relatedProducts = items.filter(
-      (suman) => suman.category === product.category
+      (suman) => suman.category === product.category && suman.id !== product.id
     );
+    console.log(relatedProducts);
 
     // console.log("RelatedProduct = ",relatedProducts)
     setRelatedProducts(relatedProducts);
@@ -85,7 +87,7 @@ const ProductDetail = ({ cart, setCart }) => {
         </div>
       </div>
       <h1 className="text-center">Related Products</h1>
-      <Product cart={cart} setCart={setCart} items={relatedProducts} />
+      <Product cart={cart} setCart={setCart} item={relatedProducts} />
     </>
   );
 };

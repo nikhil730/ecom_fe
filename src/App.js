@@ -5,19 +5,21 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import ProductDetail from "./components/ProductDetail";
 import SearchItem from "./components/SearchItem";
 import Cart from "./components/Cart";
+import Display from "./components/Display";
 import { items } from "./components/Data";
 
 const App = () => {
-  const [data, setData] = useState([...items]);
+  const [data, setData] = useState([]);
   const [cart, setCart] = useState([]);
   return (
     <>
       <Router>
         <Navbar cart={cart} setData={setData} />
         <Routes>
+          <Route path="/" element={<Display setData={setData} />} />
           <Route
-            path="/"
-            element={<Product cart={cart} setCart={setCart} items={data} />}
+            path="/products"
+            element={<Product cart={cart} setCart={setCart} item={data} />}
           />
           <Route
             path="/product/:id"
